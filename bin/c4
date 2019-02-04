@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "c4"
+
+game = C4::UseCases::Game::SetUp.new.call
+game.run
