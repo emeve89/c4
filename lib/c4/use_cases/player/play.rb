@@ -9,7 +9,8 @@ module C4
             print "\n\n#{player.name}'s turn"
             print "\nEnter column (1-7): "
             column = gets.strip.to_i
-            next unless (1..7).include?(column)
+            next unless (1..7).cover?(column)
+
             index = board.insert_chip(column: column, piece: player.symbol)
             return index
           end

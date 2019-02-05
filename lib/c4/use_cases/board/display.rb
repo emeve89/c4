@@ -4,12 +4,8 @@ module C4
       class Display
         def self.call(board)
           board.each_with_index do |row, index|
-            if index % 9 == 0 && index != 0
-              puts ""
-              print row
-            else
-              print row
-            end
+            puts '' if (index % 9).zero? && index != 0
+            print row
           end
         end
       end
