@@ -57,17 +57,14 @@ module C4
             [55, 56, 57, 58, 59, 60, 61]
         ]
 
-        #TODO: reduce to one declaraton with metaprogramming
-        def horizontal(position:)
-          ROWS.select { |row| row.include?(position) }
-        end
-
-        def vertical(position:)
-          COLUMNS.select { |column| column.include?(position) }
-        end
-
-        def diagonals(position:)
-          DIAGONALS.select { |diagonal| diagonal.include?(position) }
+        {
+            horizontal: ROWS,
+            vertical: COLUMNS,
+            diagonals: DIAGONALS
+        }.each do |key, value|
+          define_method(key) do |position|
+            value.select { |v| v.include?(position) }
+          end
         end
       end
     end

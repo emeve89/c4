@@ -32,15 +32,15 @@ module C4
         end
 
         def row_to_check(position)
-          @rows_to_check ||= @board.horizontal(position: position)
+          @rows_to_check ||= @board.horizontal(position)
         end
 
         def column_to_check(position)
-          @columns_to_check ||= @board.vertical(position: position)
+          @columns_to_check ||= @board.vertical(position)
         end
 
         def diagonals_to_check(position)
-          @diagonals_to_check ||= @board.diagonals(position: position)
+          @diagonals_to_check ||= @board.diagonals(position)
         end
       end
     end
